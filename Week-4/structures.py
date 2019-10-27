@@ -9,7 +9,14 @@ Simple functions performing operations on basic Python data structures.
 # write a function that returns a list containig the first and the last element
 # of "the_list". 
 def first_and_last(the_list):
-    return []
+    first = the_list[0]
+    last = the_list[-1]
+    new_list = []
+    new_list.append(first) #function that adds variables to the end of the list
+    new_list.append(last)
+    print(new_list)
+    return new_list
+
 
 
 # write a function that returns part of "the_list" between indices given by the
@@ -18,29 +25,46 @@ def first_and_last(the_list):
 # If "end" is greater then "beginning" or any og the indices is out of the
 # list, raise a "ValueError" exception. 
 def part_reverse(the_list, beginning, end):
-    return # hint this is incomplete
+    if beginning >= end or end >= len(the_list) or beginning < 0:
+        raise ValueError
+    else:
+        new_list = the_list[beginning:end] #the new_list is the part of the_list from beginning to one before the end
+        new_list.reverse() #calls the function to reverse new_list
+        return new_list
 
 
 # write a function that at the "index" of "the_list" inserts three times the
 # same value. For example if the_list = [0,1,2,3,4] and index = 3 the function
 # will return [0,1,2,3,3,3,4]. 
 def repeat_at_index(the_list, index):
-    return
-
+    new_list = the_list[0: index+1] + [the_list[index]] + the_list[index: len(the_list)]
+    print(new_list)
+    return new_list
+    # why do I need brackets around [the_list[index]]?? also how to do as a for loop??
+    
 
 # Strings
 
 # write a function that checks whether the word is a palindrome, i.e. it reads
 # the same forward and backwards
 def palindrome_word(word):
+    if word[::-1] == word: # word[::-1] means the word read backwards
+        print("palindrome!!!")
+    else:
+        print("not a palindrome")
     return
+
 
 # write a function that checks whether the sentence is a palindrome, i.e. it
 # read the same forward and backward. Ignore all spaces and other characters
 # like fullstops, commas, etc. Also do not consider whether the letter is
 # capital or not. 
 def palindrome_sentence(sentence):
-    return
+    for i in range(len(sentence)):
+        new_sentence= sentence.replace("!","")
+    return 
+        
+# palindrome_sentence("hello !")
 
 # write a function that concatenates two sentences. First the function checks
 # whether the sentence meets the following criteria: it starts with a capital
