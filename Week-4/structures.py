@@ -60,21 +60,37 @@ def palindrome_word(word):
 # like fullstops, commas, etc. Also do not consider whether the letter is
 # capital or not. 
 def palindrome_sentence(sentence):
-    for i in range(len(sentence)):
-        new_sentence= sentence.replace("!","")
-    return 
-        
-# palindrome_sentence("hello !")
+    import string
+    new_sentence = sentence.replace(string.punctuation, "")
+    if new_sentence[::-1] == new_sentence:
+            print("palindrome")
+    else:
+            print("not a palindrome")
+    return new_sentence
+
+# palindrome_sentence("han ,nah") # NOT WORKING YET!
 
 # write a function that concatenates two sentences. First the function checks
 # whether the sentence meets the following criteria: it starts with a capital
 # letter and it ends with a full stop, question mark, or an exclamation point.
 # Keep in mind, that the sentence might have whitespace at the beginning or at
 # the end.  The concatenated sentence must have no white space at the beginning
-# or at the end and the must be exactly one space after the end of the first
+# or at the end and there must be exactly one space after the end of the first
 # sentence. 
 def concatenate_sentences(sentenece1, sentence2):
+    sentence1.upper(sentence1[0])
+    if sentence1[-1] != "." or "!" or "?":
+        print("invalid sentence")
+    elif sentence1[0] == " ":
+        sentence1.pop[0]
+    elif sentence1[-1] == " ":
+        sentence1.pop[-1]
+    sentence1.append([" "])
+    new_sentence = sentence1 + sentence2
+    print(new_sentence)
     return
+
+concatenate_sentences("hello!", "Leilaa.")
 
 
 # Dictionaries
