@@ -3,7 +3,7 @@ structures.py
 
 Simple functions performing operations on basic Python data structures.  
 '''
-
+import string
 # Lists
 
 # write a function that returns a list containig the first and the last element
@@ -40,7 +40,6 @@ def repeat_at_index(the_list, index):
     new_list = the_list[0: index+1] + [the_list[index]] + the_list[index: len(the_list)]
     print(new_list)
     return new_list
-    # why do I need brackets around [the_list[index]]?? also how to do as a for loop??
     
 
 # Strings
@@ -60,15 +59,18 @@ def palindrome_word(word):
 # like fullstops, commas, etc. Also do not consider whether the letter is
 # capital or not. 
 def palindrome_sentence(sentence):
-    import string
-    new_sentence = sentence.replace(string.punctuation, "")
-    if new_sentence[::-1] == new_sentence:
-            print("palindrome")
-    else:
-            print("not a palindrome")
-    return new_sentence
+    new_sentence = sentence.replace("!", "").replace(",", "").replace(" ", "").lower()
+    #new_sentence = sentence.replace(string.punctuation, "")
+    print(new_sentence)
+    checking = palindrome_word(new_sentence)
+    
+    # if new_sentence[::-1] == new_sentence:
+    #         print("palindrome")
+    # else:
+    #         print("not a palindrome")
+    return checking
 
-# palindrome_sentence("han ,nah") # NOT WORKING YET!
+#palindrome_sentence("han ,Nah")
 
 # write a function that concatenates two sentences. First the function checks
 # whether the sentence meets the following criteria: it starts with a capital
@@ -77,20 +79,23 @@ def palindrome_sentence(sentence):
 # the end.  The concatenated sentence must have no white space at the beginning
 # or at the end and there must be exactly one space after the end of the first
 # sentence. 
-def concatenate_sentences(sentenece1, sentence2):
-    sentence1.upper(sentence1[0])
-    if sentence1[-1] != "." or "!" or "?":
+def concatenate_sentences(sentence1, sentence2):
+    # sentence1[0] = sentence1[0].upper()
+    sentence1 = sentence1.strip().capitalize()
+   
+
+    # if sentence1[-1] or sentence2[-1] != "." or "!" or "?":
+    #     print("invalid sentence")
+    
+    # sentence1 = sentence1 + " "
+    if sentence1[-1] or sentence2[-1] != "." or "!" or "?":
         print("invalid sentence")
-    elif sentence1[0] == " ":
-        sentence1.pop[0]
-    elif sentence1[-1] == " ":
-        sentence1.pop[-1]
-    sentence1.append([" "])
+    sentence1 = sentence1 + " "
     new_sentence = sentence1 + sentence2
     print(new_sentence)
     return
 
-concatenate_sentences("hello!", "Leilaa.")
+#concatenate_sentences("   hello!  ", "Leilaa.") #doesn't work if there are multiple whitespaces...and it says sentence1 is undefined'''
 
 
 # Dictionaries
@@ -98,14 +103,34 @@ concatenate_sentences("hello!", "Leilaa.")
 # write a function that checks whether there is a record with given key in the
 # dictionary. Return True or False.
 def index_exists(dictionary, key):
-    return
+    if key in dictionary:
+        print(True)
+        return True
+        
+    else:
+        print(False)
+        return False 
+
 
 # write a function which checks whether given value is stored in the
 # dictionary. Return True or False.
 def value_exists(dictionary, value):
+    print (bool(dictionary.get(value)))
     return
+
+dictionary = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+
+value_exists(dictionary, "Ford")
+
+
+#value_exists(dictionary, "brand") #it works but im a bit confused
 
 # write a function that returns a new dictionary which contains all the values
 # from dictionary1 and dictionary2.
 def merge_dictionaries(dictionary1, dictionary2):
-    return
+    dictionary1.update(dictionary2)
+    return(dictionary1)
+
