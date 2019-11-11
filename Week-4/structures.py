@@ -6,9 +6,10 @@ Simple functions performing operations on basic Python data structures.
 import string
 # Lists
 
-# write a function that returns a list containig the first and the last element
+# write a function that returns a list containing the first and the last element
 # of "the_list". 
 def first_and_last(the_list):
+    ''' returns a list containing the first and lasts elements of a given list, the_list'''
     first = the_list[0]
     last = the_list[-1]
     new_list = []
@@ -83,7 +84,6 @@ def concatenate_sentences(sentence1, sentence2):
     # sentence1[0] = sentence1[0].upper()
     sentence1 = sentence1.strip().capitalize()
    
-
     # if sentence1[-1] or sentence2[-1] != "." or "!" or "?":
     #     print("invalid sentence")
     
@@ -115,18 +115,16 @@ def index_exists(dictionary, key):
 # write a function which checks whether given value is stored in the
 # dictionary. Return True or False.
 def value_exists(dictionary, value):
-    print (bool(dictionary.get(value)))
-    return
-
-dictionary = {
-  "brand": "Ford",
-  "model": "Mustang",
-  "year": 1964
-
-value_exists(dictionary, "Ford")
+    if value in dictionary.values():
+        return True
+    else:
+        return False
 
 
-#value_exists(dictionary, "brand") #it works but im a bit confused
+dictionary = {"brand": "Ford", "model": "Mustang", "year": 1964}
+
+value_exists(dictionary, 1964)
+
 
 # write a function that returns a new dictionary which contains all the values
 # from dictionary1 and dictionary2.

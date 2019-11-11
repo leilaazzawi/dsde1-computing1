@@ -3,7 +3,7 @@ guess = input()
 guess = int(guess)
 import random
 from random import randint
-answer = (randint(1,5))
+answer = (randint(1,6))
 if guess == answer:
     print ('congrats your guess is right!')
     elif guess < answer:

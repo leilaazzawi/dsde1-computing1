@@ -3,7 +3,8 @@ guess = input()
 guess = int(guess)
 import random
 from random import randint
-answer = (randint(1,5))
+answer = (randint(1,6))
+print(answer)
 if guess == answer:
     print ('congrats your guess is right!')
 else:
@@ -19,3 +20,5 @@ else:
             print ('Finally!')
         else:
             print ('You have failed.')
+
+# makes the input an integer, imports 'random' function, then imports random integer function, answer = random integer from 1 to 5
